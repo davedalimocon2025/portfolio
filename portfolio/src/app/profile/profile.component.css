@@ -1,0 +1,92 @@
+
+#myRole {
+    font-size: 4rem;
+    font-weight: bold; /* Often helps with text visibility, optional */
+
+    /* Define the gradient */
+    background: linear-gradient(
+        to right,
+        rgb(0, 153, 204),
+        rgb(48, 248, 255),
+        rgb(204, 255, 255),
+        rgb(48, 248, 255),
+        rgb(0, 204, 255),
+        rgb(0, 184, 230),
+        rgb(48, 248, 255), 
+        rgb(48, 248, 255),
+        rgb(0, 184, 230)
+    );
+
+    /* Crucial for the background-position animation */
+    background-size: 400% auto; /* Make the background wider than the element */
+    /* background-repeat: repeat-x; /* Optional, default usually handles this */
+
+    /* Clip the background to the text (requires prefixes) */
+    -webkit-background-clip: text; /* For Webkit browsers (Chrome, Safari, new Edge) */
+    -moz-background-clip: text;    /* For Mozilla Firefox */
+    background-clip: text;         /* Standard property */
+
+    /* Make the text transparent so the background shows through */
+    color: transparent;
+
+    /* Apply the animation */
+    animation: gradientAnimation 8s linear infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%; /* Start at the left of the background */
+    }
+    100% {
+        background-position: 100% 50%; /* Move to the right of the background */
+    }
+}
+
+#text-box {
+ 
+}
+
+.profPicBorder {
+    height:380px;
+    width:379px;
+
+    position:absolute;
+    z-index: -1;
+   border-radius: 50%;
+
+    content:'';
+    
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value:0deg;
+    inherits:false;
+}
+
+.profPicBorder::after, .profPicBorder::before {
+   
+    content:'';
+    position:absolute;
+    height:100%;
+    width:100%;
+    border-radius:50%;
+    background-image: conic-gradient(from var(--angle), transparent 70%, #009999);
+    padding:1px;
+    translate:-50%, -50%;
+    animation: 8s spin linear infinite;
+}
+.profPicBorder::before {
+ 
+    filter: blur(10px); /* <-- This is where the blur goes. Adjust value as needed. */
+    opacity: 0.8
+
+}
+@keyframes spin {
+    from { 
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
