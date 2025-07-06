@@ -1,0 +1,112 @@
+<mat-accordion>
+    <mat-expansion-panel style="background: rgba(199, 235, 236, 0.28);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(3.5px);
+      -webkit-backdrop-filter: blur(3.5px);
+      border: 1px solid rgba(255, 255, 255, 0.31);" 
+      (opened)="panelOpenState.set(false)"
+      (closed)="panelOpenState.set(true)"
+      [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title style="color:rgb(68, 220, 247);"> Skills</mat-panel-title>
+        <mat-panel-description style="color:lightblue;">
+          {{panelOpenState() ? 'Angular, Springboot - java ... ' : ``}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div style="display:flex;justify-content: center;">
+      <div class="container">
+        <!-- <h1>My Skills</h1> -->
+
+        <div class="skills-grid">
+            <!-- Skill Card: Angular -->
+            <div class="skill-card angular">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5.72 13.02L12 10.3l-5.72 4.72L12 18.7l5.72-3.68zM12 5.3l-5.72 4.72L12 14.7l5.72-4.72L12 5.3z"/>
+                </svg>
+                Angular
+            </div>
+            <!-- Skill Card: TypeScript -->
+            <div class="skill-card typescript">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.12 14.12L12 12.01l-4.12 4.11L12 20.24l4.12-4.12zM12 3.76l-4.12 4.12L12 12.01l4.12-4.12L12 3.76z"/>
+                </svg>
+                TypeScript
+            </div>
+            <!-- Skill Card: React -->
+            <div class="skill-card react">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                </svg>
+                React
+            </div>
+            <!-- Skill Card: JavaScript -->
+            <div class="skill-card javascript">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
+                    <path d="M12 7.77L18.39 12 12 16.23 5.61 12z"/>
+                </svg>
+                JavaScript
+            </div>
+            <!-- Skill Card: Java -->
+            <div class="skill-card java">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
+                    <path d="M12 10l-4 4h8l-4-4z"/>
+                </svg>
+                Java
+            </div>
+            <!-- Skill Card: Spring Boot -->
+            <div class="skill-card springboot">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
+                    <path d="M12 8l-4 4h8l-4-4z"/>
+                </svg>
+                Spring
+            </div>
+            <!-- Skill Card: PostgreSQL -->
+            <div class="skill-card postgresql">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
+                    <path d="M12 6v12M9 9l3-3 3 3M9 15l3 3 3-3"/>
+                </svg>
+                PostgreSQL
+            </div>
+            <!-- Skill Card: MySQL -->
+            <div class="skill-card mysql">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
+                    <path d="M12 7.77L18.39 12 12 16.23 5.61 12z"/>
+                </svg>
+                MySQL
+            </div>
+            <!-- Skill Card: Linux -->
+            <div class="skill-card linux">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
+                    <path d="M12 7.77L18.39 12 12 16.23 5.61 12z"/>
+                </svg>
+                Linux
+            </div>
+            <!-- Skill Card: Nginx -->
+            <div class="skill-card nginx">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
+                    <path d="M12 7.77L18.39 12 12 16.23 5.61 12z"/>
+                </svg>
+                Nginx
+            </div>
+            <!-- Skill Card: Docker -->
+            <div class="skill-card docker">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
+                    <path d="M12 7.77L18.39 12 12 16.23 5.61 12z"/>
+                </svg>
+                Docker
+            </div>
+        </div>
+    </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>

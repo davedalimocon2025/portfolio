@@ -73,14 +73,20 @@ mat-sidenav-content {
     0% {
         transform: translateY(100vh) scale(0);
     }
-    40%{
-        opacity:0.3;
+    35%{
+        opacity:0.4;
     }
     70% {
         opacity:0.2;
     }
-    100% {
+    85%{
         opacity:0.1;
+    }
+    95%{
+        opacity:0;
+    }
+    100% {
+        opacity:0;
         transform: translateY(-10vh) scale(1);
     }
 }

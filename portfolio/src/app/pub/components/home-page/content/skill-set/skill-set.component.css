@@ -1,0 +1,80 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 16px; /* p-4 */
+    min-height: 100vh; /* min-h-screen */
+    display: flex; /* flex */
+    align-items: center; /* items-center */
+    justify-content: center; /* justify-center */
+    background: linear-gradient(to bottom right, #eff6ff, #e0e7ff); /* bg-gradient-to-br from-blue-50 to-indigo-100 */
+}
+
+.container {
+    padding: 32px; /* p-8 */
+    border-radius: 16px; /* rounded-2xl */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* shadow-2xl */
+    max-width: 448px; /* max-w-md */
+    width: 100%; /* w-full */
+    text-align: center; /* text-center */
+    
+}
+
+h1 {
+    font-size: 36px; /* text-4xl */
+    font-weight: 800; /* font-extrabold */
+    color: #1f2937; /* text-gray-800 */
+    margin-bottom: 32px; /* mb-8 */
+    letter-spacing: -0.025em; /* tracking-tight */
+}
+
+.skills-grid {
+
+    display: grid; /* grid */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
+    gap: 16px; /* gap-4 */
+}
+
+@media (min-width: 640px) { /* sm breakpoint */
+    .skills-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* sm:grid-cols-3 */
+    }
+}
+
+.skill-card {
+    padding: 16px; /* p-4 */
+    border-radius: 12px; /* rounded-xl */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
+    display: flex; /* flex */
+    flex-direction: column; /* Arrange icon and text vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    font-size: 18px; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    transition: transform 0.3s ease-in-out; /* transition-transform duration-300 ease-in-out */
+    color: #ffffff; /* default text color for most cards */
+    min-height: 100px; /* Ensure cards have enough height for icon and text */
+}
+
+.skill-card:hover {
+    transform: scale(1.05); /* hover:scale-105 */
+}
+
+.skill-card svg {
+    width: 40px; /* Icon size */
+    height: 40px; /* Icon size */
+    margin-bottom: 8px; /* Space between icon and text */
+    fill: currentColor; /* Inherit color from parent for easier styling */
+}
+
+/* Specific skill card colors */
+.skill-card.angular { background-color: red; /* bg-blue-500 */ }
+.skill-card.typescript { background-color: #2563eb; /* bg-blue-600 */ }
+.skill-card.react { background-color: #06b6d4; /* bg-cyan-500 */ }
+.skill-card.javascript { background-color: #f59e0b; /* bg-yellow-500 */ color: #1f2937; /* text-gray-900 */ }
+.skill-card.java { background-color: #ef4444; /* bg-red-500 */ }
+.skill-card.springboot { background-color: #16a34a; /* bg-green-600 */ }
+.skill-card.postgresql { background-color: #1d4ed8; /* bg-blue-700 */ }
+.skill-card.mysql { background-color: #f97316; /* bg-orange-500 */ }
+.skill-card.linux { background-color: #4b5563; /* bg-gray-700 */ }
+.skill-card.nginx { background-color: #22c55e; /* bg-green-500 */ }
+.skill-card.docker { background-color: #1e40af; /* bg-blue-800 */ }

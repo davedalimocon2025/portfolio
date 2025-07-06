@@ -1,0 +1,52 @@
+ /* Experience Section Styling */
+ .experience-section {
+    margin-top: 48px; /* mt-12 */
+    text-align: center;
+}
+
+.experience-section h2 {
+    font-size: 28px; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    color: #1f2937; /* text-gray-800 */
+    margin-bottom: 24px; /* mb-6 */
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column by default */
+    gap: 16px; /* gap-4 */
+    max-width: max-content; /* Make grid only as wide as its content */
+    margin: 0 auto; /* Center the grid horizontally */
+}
+
+@media (min-width: 640px) { /* sm breakpoint */
+    .experience-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* Two columns on small screens and up */
+    }
+}
+
+.experience-card {
+    background-color: #f8fafc; /* bg-gray-50 */
+    padding: 20px; /* p-5 */
+    border-radius: 12px; /* rounded-xl */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06); /* shadow-md */
+    text-align: left;
+    transition: transform 0.3s ease-in-out;
+    border: 1px solid #e2e8f0; /* border border-gray-200 */
+}
+
+.experience-card:hover {
+    transform: translateY(-5px); /* subtle lift effect */
+}
+
+.experience-card h3 {
+    font-size: 20px; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    color: #374151; /* text-gray-700 */
+    margin-bottom: 8px; /* mb-2 */
+}
+
+.experience-card p {
+    font-size: 16px; /* text-base */
+    color: #6b7280; /* text-gray-600 */
+}

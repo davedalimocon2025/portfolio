@@ -1,0 +1,30 @@
+<mat-accordion>
+    <mat-expansion-panel style="background: rgba(199, 235, 236, 0.28);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(3.5px);
+      -webkit-backdrop-filter: blur(3.5px);
+      border: 1px solid rgba(255, 255, 255, 0.31);" 
+      (opened)="panelOpenState.set(false)"
+      (closed)="panelOpenState.set(true)"
+      [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title style="color:rgb(68, 220, 247);"> Experience</mat-panel-title>
+        <mat-panel-description style="color:lightblue;">
+          {{panelOpenState() ? '2 years experience ... ' : ``}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="experience-section">
+        <div class="experience-grid">
+            <div class="experience-card">
+                <h3>Teaching in Computer Science</h3>
+                <p>2 Years</p>
+            </div>
+            <div class="experience-card">
+                <h3>Freelancing</h3>
+                <p>2 Years</p>
+            </div>
+        </div>
+    </div>
+    </mat-expansion-panel>
+  </mat-accordion>
