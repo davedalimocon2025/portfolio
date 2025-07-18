@@ -1,11 +1,15 @@
-# backend/Dockerfile
-FROM openjdk:26-jdk-slim-bullseye AS build 
+# backend/portfolio/Dockerfile
+# Stage 1: Build the backend application
+FROM openjdk:26-jdk-slim-bullseye AS build
 
 WORKDIR /app
 
 # Copy the Maven wrapper files
 COPY mvnw .
 COPY .mvn .mvn
+
+# --- ADD THIS LINE: Give execute permissions to mvnw ---
+RUN chmod +x mvnw
 
 # Copy the pom.xml and download dependencies using the Maven Wrapper
 COPY pom.xml .
