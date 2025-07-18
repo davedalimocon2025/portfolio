@@ -1,5 +1,5 @@
 <mat-accordion>
-    <mat-expansion-panel style="background: rgba(199, 235, 236, 0.28);
+    <mat-expansion-panel style="background:rgba(0, 128, 128, 0.664);
       border-radius: 16px;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(3.5px);
@@ -7,23 +7,41 @@
       border: 1px solid rgba(255, 255, 255, 0.31);" 
       (opened)="panelOpenState.set(false)"
       (closed)="panelOpenState.set(true)"
-      [expanded]="true">
+      [expanded]="false">
       <mat-expansion-panel-header>
-        <mat-panel-title style="color:rgb(68, 220, 247);"> Experience</mat-panel-title>
-        <mat-panel-description style="color:lightblue;">
-          {{panelOpenState() ? '2 years experience ... ' : ``}}
+        <mat-panel-title style="color:turquoise;">  &nbsp; Experience</mat-panel-title>
+        <mat-panel-description style="color:turquoise;">
+          {{panelOpenState() ? '2+ years experience ... ' : ``}}
         </mat-panel-description>
       </mat-expansion-panel-header>
       <div class="experience-section">
         <div class="experience-grid">
             <div class="experience-card">
-                <h3>Teaching in Computer Science</h3>
-                <p>2 Years</p>
+                <h3>Jr. Full-stack developer</h3>
+                <p>Catapult / Magaya Corp.</p>
+                <p><small>August 2024 - December 2024</small> </p>
+                <p style="margin:1em;">Developed a new feature using Angular v.17 for front-end & Java v.17 - spring MVC for back-end, and debugging of existing Rate Management App</p>
             </div>
             <div class="experience-card">
                 <h3>Freelancing</h3>
-                <p>2 Years</p>
+                <p>Personal Clients</p>
+                <p><small>September 2022 - March 2024</small> </p>
+                <p style="margin:1em;">Designed, developed and deployed some small projects such as landing pages, websites, and chat-app using ReactJS, PHP, MongoDB, MySQL, ExpressJS, NodeJS etc.</p>
             </div>
+            <div class="experience-card">
+                <h3>Computer Science Instructor</h3>
+                <p>DEBESMSCAT (State College) </p>
+                <p><small> August 2022 - January 2024 </small></p>
+                <p>Handled subjects: </p>
+                <p style="margin:1em;">Object-oriented programming, Web Development, Operating System, Human Computer Interaction</p>
+            </div>
+            <div class="experience-card">
+                <h3>Agrarian Reform Program Technologist</h3>
+                <p>Department of Agrarian Reform - Masbate</p>
+                <p><small> October 2019 - August 2021 </small></p>
+                <p style="margin:1em;">Implementation of Agrarian Laws</p>
+            </div>
+          
         </div>
     </div>
     </mat-expansion-panel>

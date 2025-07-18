@@ -1,0 +1,65 @@
+services:
+  db:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_DB: portfolio # <<< CHANGE THIS (e.g., myapp_db)
+      POSTGRES_USER: postgres    # <<< CHANGE THIS (e.g., myuser)
+      POSTGRES_PASSWORD: 1234 # <<< CHANGE THIS (use a strong, unique password!)
+    # No direct port exposure needed for production if only backend connects
+    # For local development/debugging, you might uncomment:
+    # ports:
+    #   - "5433:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data # Persistent data stored in a named volume
+
+  backend:
+    build:
+      context: ./backend/portfolio # Docker will look for Dockerfile in this directory
+      dockerfile: Dockerfile
+    # No direct port exposure to the host needed in this setup,
+    # as Nginx will proxy requests to it internally within the Docker network.
+    # The 'backend' service listens on port 8080 internally.
+    environment:
+      SPRING_PROFILES_ACTIVE: prod # Activate a specific Spring profile if you have one
+      # It's recommended to pass sensitive DB credentials via environment variables:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/portfolio # <<< ENSURE THIS MATCHES YOUR DB_NAME
+      SPRING_DATASOURCE_USERNAME: postgres # <<< ENSURE THIS MATCHES YOUR DB_USER
+      SPRING_DATASOURCE_PASSWORD: 1234 # <<< ENSURE THIS MATCHES YOUR DB_PASSWORD
+    depends_on:
+      - db # Ensures 'db' container starts before 'backend'
+    restart: always # Always restart the backend container if it stops
+
+  # This service is a build-only container for the Angular frontend.
+  # It builds the Angular application using your portfolio/Dockerfile
+  # and places the static files into a shared volume.
+  angular_builder:
+    build:
+      context: ./portfolio # Path to your Angular frontend's Dockerfile (the one you provided)
+      dockerfile: Dockerfile
+    volumes:
+      # Mount the named volume to capture the Angular build output.
+      # The /usr/share/nginx/html path matches the WORKDIR in portfolio/Dockerfile Stage 2.
+      - angular_build_output:/usr/share/nginx/html
+
+  nginx:
+    image: nginx:stable-alpine # Use a lightweight official Nginx image
+    ports:
+      - "80:80" # Map host's port 80 to Nginx container's port 80 (for HTTP traffic)
+      # For HTTPS (highly recommended for production), you'll need to add port 443
+      # and configure SSL certificates within nginx/nginx.conf,
+      # which typically involves mounting certificate volumes.
+      # - "443:443"
+    volumes:
+      # Mount your custom Nginx configuration file into the container
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      # Mount the shared volume containing the Angular static files
+      - angular_build_output:/usr/share/nginx/html:ro
+    depends_on:
+      - backend         # Nginx needs the backend to be available for proxying API calls
+      - angular_builder # Ensures Angular build is complete before Nginx tries to serve files
+    restart: always # Always restart the Nginx container if it stops
+
+volumes:
+  db_data:              # Named volume for PostgreSQL persistent data
+  angular_build_output: # Named volume to store Angular's compiled static files

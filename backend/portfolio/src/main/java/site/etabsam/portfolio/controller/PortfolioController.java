@@ -1,4 +1,4 @@
-package site.etabsam.portfolio;
+package site.etabsam.portfolio.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.FieldError;

@@ -1,0 +1,72 @@
+<div class="posts-container">
+
+  <div class="search-bar-section" style="width:100%; height:5em;display:flex;align-items: center; justify-content: center;">
+    <!-- <input type="text" placeholder="Search posts by title..." class="search-input" [(ngModel)]="searchTerm" (keyup.enter)="applySearch()">
+    <button class="search-button" (click)="applySearch()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="search-icon">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+      </svg>
+
+    </button> -->
+
+    <app-sample-search></app-sample-search>
+  </div>
+  <div s>
+    <div *ngIf="isLoading" class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading posts...</p>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message" role="alert">
+      <strong>Error!</strong>
+      <span>{{ errorMessage }}</span>
+    </div>
+
+    <div *ngIf="!isLoading && !errorMessage && posts.length === 0" class="no-posts-found">
+      <p>No posts found.</p>
+      <button class="back-button" (click)="goBack()">Back to Posts</button>
+    </div>
+
+    <div class="posts-grid">
+      <div *ngFor="let post of posts" class="post-card">
+        <div class="post-content-area" (click)="viewPost(post.id)">
+          <h2 class="post-title" title="{{post.title}}">
+            {{ post.title }}
+          </h2>
+          <p class="post-text-content">
+            {{ post.content }}
+          </p>
+          <div class="post-meta">
+            <span class="post-author">
+              <svg class="post-icon icon-blue" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
+                </path>
+              </svg>
+              {{ post.author }}
+            </span>
+            <span class="post-category">
+              <svg class="post-icon icon-green" fill="AdmincurrentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                </path>
+              </svg>
+              {{ post.category }}
+            </span>
+          </div>
+          <div class="post-tags">
+            <strong>Tags:</strong> {{ formatTags(post.tags) }}
+          </div>
+          <div class="post-dates">
+            <span>Published: {{ post.createdAt | date:'mediumDate' }}</span>
+            <span>Updated: {{ post.updatedAt | date:'mediumDate' }}</span>
+          </div>
+        </div>
+        <div class="post-status-footer">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,17 +1,123 @@
-<div id="project-box">
-    <div class="project-card">
-            project 
-    </div>   <div class="project-card">
-            project 
-    </div>   <div class="project-card">
-            project 
-    </div>   <div class="project-card">
-            project 
-    </div>   <div class="project-card">
-            project 
-    </div>   <div class="project-card">
-            project 
-    </div>
-    
-    
-</div>
+<mat-accordion>
+        <mat-expansion-panel style="background: lightcyan;
+          border-radius: 16px;
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(3.5px);
+          -webkit-backdrop-filter: blur(3.5px);
+          border: 1px solid rgba(255, 255, 255, 0.31);" (opened)="panelOpenState.set(false)"
+                (closed)="panelOpenState.set(true)">
+                <mat-expansion-panel-header>
+                        <mat-panel-title style="color:darkslategray;"> &nbsp; Projects</mat-panel-title>
+                        <mat-panel-description style="color:dakrslategray;">
+                                {{panelOpenState() ? 'Showcasing my past works ... ' : ``}}
+                        </mat-panel-description>
+                </mat-expansion-panel-header>
+
+
+
+                <div class="projects-section">
+                        <div class="projects-grid">
+
+                                <div class="project-card">
+                                        <div class="video-container">
+                                                <iframe width="560" height="315"
+                                                        src="https://www.youtube.com/embed/zKehQcIRDBw?si=Y_mcHGPG2RUiFZ4m"
+                                                        title="YouTube video player" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                        referrerpolicy="strict-origin-when-cross-origin"
+                                                        allowfullscreen></iframe>
+                                        </div>
+                                        <h3>ChatBot App</h3>
+                                        <p>MongoDB,ExpressJS, React ,NodeJS, (MERN) using TypeScript</p>
+                                </div>
+                                <div class="project-card">
+                                        <div class="video-container">
+                                                <iframe width="560" height="315"
+                                                        src="https://www.youtube.com/embed/YDrA9K8Kj0M?si=-iI06Ym4uB0hP7yq&amp;start=2"
+                                                        title="YouTube video player" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                        referrerpolicy="strict-origin-when-cross-origin"
+                                                        allowfullscreen></iframe>
+                                        </div>
+                                        <h3>Teacher's Portfolio</h3>
+                                        <p>ReactJS website with TailwindCSS </p>
+                                </div>
+                                <div class="project-card">
+                                        <div class="video-container">
+                                                <iframe width="560" height="315"
+                                                        src="https://www.youtube.com/embed/YQklmr0sIq8?si=Qg4HjVdJxMUnMyz7&amp;start=1"
+                                                        title="YouTube video player" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                        referrerpolicy="strict-origin-when-cross-origin"
+                                                        allowfullscreen></iframe>
+                                        </div>
+                                        <h3>YouTube Clone</h3>
+                                        <p>Front-end imitation of YouTube using React</p>
+                                </div>
+                                <div class="project-card">
+                                        <div class="video-container">
+                                                <iframe width="560" height="315"
+                                                        src="https://www.youtube.com/embed/aieJkJUEJww?si=cwJWU8YcQUkrQc41&amp;start=3"
+                                                        title="YouTube video player" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                        referrerpolicy="strict-origin-when-cross-origin"
+                                                        allowfullscreen></iframe>
+                                        </div>
+                                        <h3>Booking App</h3>
+                                        <p>MERN stack .</p>
+                                </div>
+                                <div class="project-card">
+                                        <div class="video-container">
+                                                <iframe width="560" height="315"
+                                                        src="https://www.youtube.com/embed/t_ndNPC-MuI?si=chicYLqSGX3BYvlN&amp;start=2"
+                                                        title="YouTube video player" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                        referrerpolicy="strict-origin-when-cross-origin"
+                                                        allowfullscreen></iframe>
+                                        </div>
+                                        <h3>Graphic Arts Compilation</h3>
+                                        <p>page w/ CSS animation for compilation of graphic designs</p>
+                                </div>
+                                <div class="project-card">
+                                        <div class="video-container">
+                                                <iframe width="560" height="315"
+                                                        src="https://www.youtube.com/embed/LdbDldj4M_Q?si=40mTIMocUzqjYrT8&amp;start=556"
+                                                        title="YouTube video player" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                        referrerpolicy="strict-origin-when-cross-origin"
+                                                        allowfullscreen></iframe>
+                                        </div>
+                                        <h3>Zilong Attack</h3>
+                                        <p>Used CSS animation</p>
+                                </div>
+                                <div class="project-card">
+                                        <div class="video-container">
+                                                <iframe width="560" height="315"
+                                                        src="https://www.youtube.com/embed/z3k1iank_Ag?si=c_8Pr-9CSgREsNVD&amp;start=1"
+                                                        title="YouTube video player" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                        referrerpolicy="strict-origin-when-cross-origin"
+                                                        allowfullscreen>
+                                                </iframe>
+                                        </div>
+                                        <h3>Online Brgy Transaction</h3>
+                                        <p>A small monolithic web app using PHP</p>
+                                </div>
+                                <div class="project-card">
+                                        <div class="video-container">
+                                                <iframe width="560" height="315"
+                                                        src="https://www.youtube.com/embed/F0RoJMCovQk?si=xyeVlOZAWbOqTQEf"
+                                                        title="YouTube video player" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                        referrerpolicy="strict-origin-when-cross-origin"
+                                                        allowfullscreen>
+                                                </iframe>
+                                        </div>
+                                        <h3>Real Estate Website</h3>
+                                        <p>HTML, CSS, JavaScript</p>
+                                </div>
+
+                        </div>
+                </div>
+        </mat-expansion-panel>
+</mat-accordion>

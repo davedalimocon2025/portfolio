@@ -12,7 +12,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 })
 export class SkillSetComponent {
 
-  readonly panelOpenState = signal(false);
+  readonly panelOpenState = signal(true);
 }
 
 

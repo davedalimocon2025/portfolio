@@ -1,0 +1,44 @@
+* {
+  color: black;
+  font-family: Arial;
+}
+
+mat-card {
+  max-width: 900px;
+}
+
+.detail-meta {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-content {
+  margin-top: 2em;
+}
+
+.detail-timestamps {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.back-button {
+  margin-top: 2em;
+  padding: 1em;
+  border: none;
+  border-radius: 0.5em;
+  color: gray;
+  font-weight: bold;
+  font-size: 20px;
+}
+.back-button:hover {
+  color: rgb(4, 4, 4, 0.8);
+  background: lightgray;
+  cursor: pointer;
+}

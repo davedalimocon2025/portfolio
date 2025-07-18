@@ -1,0 +1,104 @@
+/* In your CSS file */
+
+.posts-list {
+  width: 350px;
+  background: white;
+  padding: 0.5em;
+  display: grid; /* Keep display: grid */
+  /* --- KEY CHANGES HERE --- */
+  /* 1. Force a single column */
+  grid-template-columns: 1fr; /* This ensures only one column, spanning the available width */
+  gap: 0.5em;
+
+  /* 2. Center the single column/items within the grid */
+  /* This centers the grid items if the .posts-list container is wider than the card's max-width */
+  justify-items: center; /* Centers each grid item horizontally */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  /* Optional: Set a max-width for the posts-list itself if you want a global content width */
+  /* max-width: 600px; */ /* Example: Limit the entire list's width */
+  /* margin: 20px auto; */ /* Example: Center the entire list if it has a max-width */
+}
+
+.post-card {
+  background-color: #fff;
+
+  border-radius: 8px;
+  padding: 15px;
+  height: fit-content;
+  /* --- KEY CHANGES HERE --- */
+  /* 3. Define a fixed width for the post card */
+  width: 100%; /* Take full width of its grid column */
+  max-width: 325px; /* Set your desired fixed maximum width for the card */
+  /* The card will be 100% of the column up to 450px. */
+  /* If you want it *exactly* 450px wide regardless, use 'width: 450px;' */
+  /* But max-width is generally safer for responsiveness. */
+}
+.post-card:hover {
+  background: skyblue;
+  cursor: pointer;
+}
+
+/* Retain or add your existing styling for text overflow */
+.post-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1.2em;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.post-card p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0;
+  color: #666;
+  font-size: 0.9em;
+}
+
+/* Ensure your main container also has sensible limits */
+.container {
+  max-width: 900px; /* Example: Max width for your entire content area */
+  /* Centers the container */
+
+  width: 350px;
+}
+
+/* Other styles from previous examples */
+.search-input-wrapper {
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.message {
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.loading {
+  background-color: #e0f7fa;
+  color: #007bff;
+}
+
+.error {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.no-results,
+.initial {
+  background-color: #fff3e0;
+  color: #f57c00;
+}

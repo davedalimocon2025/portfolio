@@ -2,33 +2,31 @@
 
     <div id="contentX">
 
-        <app-profile />
-        <div style="margin-top:2em;margin:1em;display:flex;flex-direction: column;gap:1em; max-width:700px;">
+        <app-profile id="intro" />
+        <div style="margin-top:2em;display:flex;flex-direction: column;gap:1em; max-width:700px;">
             <expansion-overview-example id="intro"  />
-        <app-skill-set id="skills"></app-skill-set>
         <app-experience id="exp"></app-experience>
-        </div>
-        
-        <div >
-            <app-project-box style="margin:2em;margin-top:0;" />
+        <app-skill-set id="skills"></app-skill-set>
+       
+            <app-project-box id="project" />
         </div>
 
     </div>
     <div class="onThisPageBox">
         <h5>ON THIS PAGE:</h5>
         <div class="onThisPage">
-            <div><a href="/home">Introduction</a></div>
-            <div><a href="/home#skills">Skill set</a></div>
+            <div><a href="/home#intro">Introduction</a></div>
             <div><a href="/home#exp">Experience</a></div>
-
-            <div>
-                Project 1: PORTFOLIO
+            <div><a href="/home#skills">Skill set</a></div>
+            <div><a href="/home#project">Projects</a></div>
+            <!-- <div>
+                Project 1: PORTFOLIO x BLOG 
             </div>
             <div> - Angular front-end</div>
             <div> - Spring-boot back-end</div>
             <div> - PostgreSQL for database</div>
             <div> - Linux Ubuntu VPS</div>
-            <div> - Docker for containerization</div>
+            <div> - Docker for containerization</div> -->
         </div>
     </div>
 </div>

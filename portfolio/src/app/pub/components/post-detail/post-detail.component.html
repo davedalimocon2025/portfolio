@@ -1,0 +1,50 @@
+<div class="post-detail-container">
+  <h1 class="post-detail-title">Post Details</h1>
+
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p style="color:black;">Loading post details...</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message" role="alert">
+    <strong>Error!</strong>
+    <span>{{ errorMessage }}</span>
+  </div>
+  <mat-card appearance="outlined">
+    <mat-card-content>
+
+
+
+      <div *ngIf="!isLoading && post" class="post-details-card">
+        <h2 class="detail-post-title">{{ post.title }}</h2>
+        <div class="detail-meta">
+          <span><strong>Author:</strong> {{ post.author }}</span>
+          <span><strong>Category:</strong> {{ post.category }}</span>
+          <span><strong>Tags:</strong> {{ post.tags || 'None' }}</span>
+        </div>
+        <p class="detail-content">{{ post.content }}</p>
+        <div class="detail-timestamps">
+          <span>Created: {{ post.createdAt | date:'medium' }}</span>
+          <span>Last Updated: {{ post.updatedAt | date:'medium' }}</span>
+        </div>
+        <!-- <div class="detail-published-status">
+        <strong>Status:</strong>
+        <span [ngClass]="{
+          'status-published': post.published,
+          'status-draft': !post.published
+        }" class="post-status-badge">
+          {{ post.published ? 'Published' : 'Draft' }}
+        </span>
+      </div> -->
+        <div class="detail-actions">
+          <button class="back-button" (click)="goBack()">Back to Posts</button>
+          <!-- <button class="edit-button" (click)="router.navigate(['/posts/edit', post.id])">Edit Post</button> -->
+          <!-- Optional: Add a delete button here too -->
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div *ngIf="!isLoading && !post && !errorMessage" class="no-post-data">
+    <p>Post not found or data could not be loaded.</p>
+  </div>
+</div>

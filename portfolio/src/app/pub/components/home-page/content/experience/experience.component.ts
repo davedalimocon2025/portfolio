@@ -14,5 +14,5 @@ import {MatExpansionModule} from '@angular/material/expansion';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExperienceComponent {
-  readonly panelOpenState = signal(false);
+  readonly panelOpenState = signal(true);
 }

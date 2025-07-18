@@ -1,0 +1,87 @@
+<div class="posts-container">
+  
+ 
+
+  <div class="posts-title">
+    
+    <div class="create-post-section">
+    <button class="create-button" (click)="createNewPost()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="create-icon">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+      </svg>
+      Create New Post
+    </button>
+  </div>
+  <div>
+    <div class="search-bar-section">
+    <input type="text" placeholder="Search posts by title..." class="search-input" [(ngModel)]="searchTerm" (keyup.enter)="applySearch()">
+    <button class="search-button" (click)="applySearch()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="search-icon">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+      </svg>
+
+    </button>
+  </div>
+  </div>
+</div>
+
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading posts...</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message" role="alert">
+    <strong>Error!</strong>
+    <span>{{ errorMessage }}</span>
+  </div>
+
+  <div *ngIf="!isLoading && !errorMessage && posts.length === 0" class="no-posts-found">
+    <p>No posts found.</p>
+  </div>
+
+  <div class="posts-grid">
+    <div *ngFor="let post of posts" class="post-card">
+      <div class="post-content-area">
+        <h2 class="post-title" title="{{post.title}}">
+          {{ post.title }}
+        </h2>
+        <p class="post-text-content">
+          <!-- Using the truncate pipe with a limit of 150 characters and completeWords to true -->
+          {{ post.content  }}
+        </p>
+        <div class="post-meta">
+          <span class="post-author">
+            <svg class="post-icon icon-blue" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+            {{ post.author }}
+          </span>
+          <span class="post-category">
+            <svg class="post-icon icon-green" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+            {{ post.category }}
+          </span>
+        </div>
+        <div class="post-tags">
+          <strong>Tags:</strong> {{ formatTags(post.tags) }}
+        </div>
+        <div class="post-dates">
+          <span>Created: {{ post.createdAt | date:'mediumDate' }}</span>
+          <span>Updated: {{ post.updatedAt | date:'mediumDate' }}</span>
+        </div>
+      </div>
+      <div class="post-status-footer">
+        <span [ngClass]="{
+            'status-published': post.published,
+            'status-draft': !post.published
+          }" class="post-status-badge">
+          <svg *ngIf="post.published" class="post-icon status-icon-check" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+          <svg *ngIf="!post.published" class="post-icon status-icon-x" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+          {{ post.published ? 'Published' : 'Draft' }}
+        </span>
+        <div class="post-actions">
+          <button class="action-button view-button" (click)="viewPost(post.id)">View</button>
+          <button class="action-button edit-button" (click)="editPost(post.id)">Edit</button>
+          <button class="action-button delete-button" (click)="deletePost(post.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

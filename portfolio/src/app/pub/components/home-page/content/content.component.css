@@ -26,6 +26,10 @@
 .onThisPage :hover {
   color: skyblue;
 }
+.onThisPage a{
+  text-decoration:none;
+  color:white;
+}
 
 .onThisPageBox {
     background:;
@@ -34,6 +38,7 @@
   flex-direction: column;
   position: fixed;
   right: 0;
+  margin-right:6em;
 }
 
 @media (max-width: 1024px) {

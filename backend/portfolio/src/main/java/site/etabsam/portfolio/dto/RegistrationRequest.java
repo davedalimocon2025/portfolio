@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data // Provides getters, setters, toString, equals, hashCode
 @NoArgsConstructor // Provides a no-argument constructor
 @AllArgsConstructor
-public class PortfolioDTO {
+public class RegistrationRequest {
 
 
     @NotBlank(message = "Username cannot be empty")

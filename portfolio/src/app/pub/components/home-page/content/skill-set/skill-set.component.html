@@ -1,5 +1,5 @@
 <mat-accordion>
-    <mat-expansion-panel style="background: rgba(199, 235, 236, 0.28);
+    <mat-expansion-panel style="background: turquoise;
       border-radius: 16px;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(3.5px);
@@ -7,10 +7,10 @@
       border: 1px solid rgba(255, 255, 255, 0.31);" 
       (opened)="panelOpenState.set(false)"
       (closed)="panelOpenState.set(true)"
-      [expanded]="true">
+      [expanded]="false">
       <mat-expansion-panel-header>
-        <mat-panel-title style="color:rgb(68, 220, 247);"> Skills</mat-panel-title>
-        <mat-panel-description style="color:lightblue;">
+        <mat-panel-title style="color:teal;"> &nbsp;  Skills</mat-panel-title>
+        <mat-panel-description style="color:teal;">
           {{panelOpenState() ? 'Angular, Springboot - java ... ' : ``}}
         </mat-panel-description>
       </mat-expansion-panel-header>
@@ -64,6 +64,12 @@
                     <path d="M12 8l-4 4h8l-4-4z"/>
                 </svg>
                 Spring
+            </div>
+            <div class="skill-card php">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5.72 13.02L12 10.3l-5.72 4.72L12 18.7l5.72-3.68zM12 5.3l-5.72 4.72L12 14.7l5.72-4.72L12 5.3z"/>
+                </svg>
+                PHP
             </div>
             <!-- Skill Card: PostgreSQL -->
             <div class="skill-card postgresql">

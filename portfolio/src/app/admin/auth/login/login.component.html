@@ -1,0 +1,95 @@
+<div
+  style="
+    max-width: 800px;
+    width: 80vw;
+    height: 80vh;
+    max-height: 800px;
+    margin-left: 1em;
+    margin-right: 1em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  "
+>
+  <div>
+    <div class="login-container">
+      <h2>Authorized users only</h2>
+
+      <form
+        class="example-form"
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()"
+        style="
+          display: flex;
+          flex-direction: column;
+          max-width: 375px;
+          width: 1200px;
+          padding: 1em;
+        "
+      > 
+        <mat-form-field class="example-full-width">
+          <mat-label>Username</mat-label>
+          <input
+            type="text"
+            matInput
+            [errorStateMatcher]="matcher"
+            placeholder=""
+            id="username"
+            formControlName="username"
+            [class.is-invalid]="username?.invalid && username?.touched"
+          />
+
+          @if (emailFormControl.hasError('email') &&
+          !emailFormControl.hasError('required')) {
+          <mat-error>Please enter a valid email address</mat-error>
+          }
+          @if (emailFormControl.hasError('required')) {
+          <mat-error>error message:</mat-error>
+          }
+        </mat-form-field>
+        <div
+          *ngIf="username?.invalid && username?.touched"
+          class="validation-error"
+        >
+          <div *ngIf="username?.errors?.['required']">
+            Username is required.
+          </div>
+          <div *ngIf="username?.errors?.['minlength']">
+            Username must be at least 3 characters.
+          </div>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            id="password"
+            placeholder=""
+            formControlName="password"
+            [class.is-invalid]="password?.invalid && password?.touched"
+            value="Sushi"
+          />
+        </mat-form-field>
+        <div
+          *ngIf="password?.invalid && password?.touched"
+          class="validation-error"
+        >
+          <div *ngIf="password?.errors?.['required']">
+            Password is required.
+          </div>
+          <div *ngIf="password?.errors?.['minlength']">
+            Password must be at least 6 characters.
+          </div>
+        </div>
+        <!-- <button >Login</button> -->
+        <button type="submit" [disabled]="loginForm.invalid" mat-raised-button>
+          Login
+        </button>
+      </form>
+      <div class="form-group"></div>
+
+      <!-- </form> -->
+    </div>
+  </div>
+</div>

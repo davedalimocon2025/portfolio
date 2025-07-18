@@ -1,9 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body {  scroll-behavior: smooth;}
 body { margin: 0; 
     /*font-family: Roboto, "Helvetica Neue", sans-serif; */
   font-family: "Oxanium", sans-serif;
   font-optical-sizing: auto;
   background:black;
+  padding:0;
+  margin:0;
+      
+
+}
+* {
+  margin:0;
+  padding:0;
+    box-sizing:border-box;
+
 }
